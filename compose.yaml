@@ -1,0 +1,11 @@
+services:
+  app:
+    image: ghcr.io/parkyc-dev/cicd-lab:${IMAGE_TAG:-latest}
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped

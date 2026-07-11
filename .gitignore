@@ -37,4 +37,6 @@ out/
 .vscode/
 
 ### Local secrets ###
+/docs
+.env
 src/main/resources/application-local.yaml
