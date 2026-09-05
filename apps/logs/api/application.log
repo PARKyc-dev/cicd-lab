@@ -1,0 +1,319 @@
+2026-09-05 23:26:26.427 INFO  [Test worker] com.parkyc.jypword.JypWordApplicationTests - Starting JypWordApplicationTests using Java 21.0.12.1 with PID 9083 (started by parkyc in /Users/parkyc/Desktop/Code/cicd-lab/apps/api)
+2026-09-05 23:26:26.431 INFO  [Test worker] com.parkyc.jypword.JypWordApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-09-05 23:26:26.475 INFO  [background-preinit] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 9.1.0.Final
+2026-09-05 23:26:26.642 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-05 23:26:26.668 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 3 JPA repository interfaces.
+2026-09-05 23:26:26.785 INFO  [Test worker] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-05 23:26:26.803 INFO  [Test worker] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-05 23:26:26.928 INFO  [Test worker] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-05 23:26:26.938 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-09-05 23:26:26.993 INFO  [Test worker] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:poelens-test user=SA
+2026-09-05 23:26:26.994 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-09-05 23:26:27.001 WARN  [Test worker] org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-05 23:26:27.008 INFO  [Test worker] org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:poelens-test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: POELENS-TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-05 23:26:27.415 INFO  [Test worker] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-05 23:26:27.441 INFO  [Test worker] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:26:27.483 INFO  [Test worker] org.springframework.data.jpa.repository.query.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-05 23:26:27.917 WARN  [Test worker] org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-05 23:26:28.079 INFO  [Test worker] com.parkyc.jypword.JypWordApplicationTests - Started JypWordApplicationTests in 1.777 seconds (process running for 2.259)
+2026-09-05 23:26:28.085 INFO  [scheduling-1] com.parkyc.jypword.health.scheduler.DbHealthScheduler - Scheduled Supabase health check succeeded: result=1
+2026-09-05 23:26:28.533 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.BuildAnalysisControllerTest]: BuildAnalysisControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:26:28.550 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.BuildAnalysisControllerTest
+2026-09-05 23:26:28.551 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.BuildAnalysisControllerTest]: BuildAnalysisControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:26:28.552 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.BuildAnalysisControllerTest
+2026-09-05 23:26:28.588 INFO  [Test worker] com.parkyc.poelens.BuildAnalysisControllerTest - Starting BuildAnalysisControllerTest using Java 21.0.12.1 with PID 9083 (started by parkyc in /Users/parkyc/Desktop/Code/cicd-lab/apps/api)
+2026-09-05 23:26:28.588 INFO  [Test worker] com.parkyc.poelens.BuildAnalysisControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-09-05 23:26:28.701 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-05 23:26:28.711 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 3 JPA repository interfaces.
+2026-09-05 23:26:28.767 INFO  [Test worker] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-05 23:26:28.779 INFO  [Test worker] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-05 23:26:28.779 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-09-05 23:26:28.780 INFO  [Test worker] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:poelens-test user=SA
+2026-09-05 23:26:28.780 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-09-05 23:26:28.780 WARN  [Test worker] org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-05 23:26:28.781 INFO  [Test worker] org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:poelens-test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: POELENS-TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-05 23:26:28.826 INFO  [Test worker] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-05 23:26:28.835 INFO  [Test worker] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:26:28.889 WARN  [Test worker] org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-05 23:26:28.947 INFO  [Test worker] org.springframework.boot.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-09-05 23:26:28.947 INFO  [Test worker] org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2026-09-05 23:26:28.948 INFO  [Test worker] org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+2026-09-05 23:26:28.955 INFO  [scheduling-1] com.parkyc.jypword.health.scheduler.DbHealthScheduler - Scheduled Supabase health check succeeded: result=1
+2026-09-05 23:26:28.956 INFO  [Test worker] com.parkyc.poelens.BuildAnalysisControllerTest - Started BuildAnalysisControllerTest in 0.4 seconds (process running for 3.136)
+2026-09-05 23:26:29.020 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.020 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=5
+2026-09-05 23:26:29.022 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.022 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=4, 처리 시간(ms)=1
+2026-09-05 23:26:29.057 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.057 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=0
+2026-09-05 23:26:29.057 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.058 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:26:29.061 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.061 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=2, 방어 사실 수=5
+2026-09-05 23:26:29.061 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.062 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=2, 방어 결과 수=3, 처리 시간(ms)=0
+2026-09-05 23:26:29.068 WARN  [Test worker] com.parkyc.poelens.config.response.PoeLensExceptionAdvice - 잘못된 빌드 분석 요청 거부: 오류 수=1
+2026-09-05 23:26:29.073 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.073 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=0, 방어 사실 수=0
+2026-09-05 23:26:29.074 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.074 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=0, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:26:29.106 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.106 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=0, 방어 사실 수=0
+2026-09-05 23:26:29.106 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.107 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=0, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:26:29.110 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.110 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=0, 방어 사실 수=0
+2026-09-05 23:26:29.110 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.110 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=0, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:26:29.112 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.113 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=0
+2026-09-05 23:26:29.113 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.113 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:26:29.117 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.117 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=2, 방어 사실 수=6
+2026-09-05 23:26:29.117 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.117 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=2, 방어 결과 수=4, 처리 시간(ms)=0
+2026-09-05 23:26:29.120 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.120 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=0
+2026-09-05 23:26:29.120 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.121 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:26:29.123 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.123 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=0
+2026-09-05 23:26:29.123 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.123 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:26:29.125 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:26:29.125 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=5
+2026-09-05 23:26:29.126 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:26:29.126 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=3, 처리 시간(ms)=0
+2026-09-05 23:26:29.128 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.PoeLensApplicationTests]: PoeLensApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:26:29.129 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.PoeLensApplicationTests
+2026-09-05 23:26:29.129 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.PoeLensApplicationTests]: PoeLensApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:26:29.130 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.PoeLensApplicationTests
+2026-09-05 23:26:29.190 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:26:29.193 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-09-05 23:26:29.194 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-09-05 23:26:29.195 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:26:29.195 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-09-05 23:26:29.196 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-09-05 23:32:08.524 INFO  [Test worker] com.parkyc.jypword.JypWordApplicationTests - Starting JypWordApplicationTests using Java 21.0.12.1 with PID 11681 (started by parkyc in /Users/parkyc/Desktop/Code/cicd-lab/apps/api)
+2026-09-05 23:32:08.527 INFO  [Test worker] com.parkyc.jypword.JypWordApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-09-05 23:32:08.575 INFO  [background-preinit] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 9.1.0.Final
+2026-09-05 23:32:08.777 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-05 23:32:08.801 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 3 JPA repository interfaces.
+2026-09-05 23:32:08.939 INFO  [Test worker] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-05 23:32:08.965 INFO  [Test worker] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-05 23:32:09.124 INFO  [Test worker] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-05 23:32:09.140 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-09-05 23:32:09.206 INFO  [Test worker] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:poelens-test user=SA
+2026-09-05 23:32:09.206 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-09-05 23:32:09.218 WARN  [Test worker] org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-05 23:32:09.225 INFO  [Test worker] org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:poelens-test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: POELENS-TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-05 23:32:09.705 INFO  [Test worker] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-05 23:32:09.733 INFO  [Test worker] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:32:09.779 INFO  [Test worker] org.springframework.data.jpa.repository.query.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-05 23:32:10.256 WARN  [Test worker] org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-05 23:32:10.430 INFO  [Test worker] com.parkyc.jypword.JypWordApplicationTests - Started JypWordApplicationTests in 2.048 seconds (process running for 2.6)
+2026-09-05 23:32:10.436 INFO  [scheduling-1] com.parkyc.jypword.health.scheduler.DbHealthScheduler - Scheduled Supabase health check succeeded: result=1
+2026-09-05 23:32:10.887 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.BuildAnalysisControllerTest]: BuildAnalysisControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:32:10.903 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.BuildAnalysisControllerTest
+2026-09-05 23:32:10.904 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.BuildAnalysisControllerTest]: BuildAnalysisControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:32:10.906 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.BuildAnalysisControllerTest
+2026-09-05 23:32:10.937 INFO  [Test worker] com.parkyc.poelens.BuildAnalysisControllerTest - Starting BuildAnalysisControllerTest using Java 21.0.12.1 with PID 11681 (started by parkyc in /Users/parkyc/Desktop/Code/cicd-lab/apps/api)
+2026-09-05 23:32:10.938 INFO  [Test worker] com.parkyc.poelens.BuildAnalysisControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-09-05 23:32:11.032 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-05 23:32:11.042 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 3 JPA repository interfaces.
+2026-09-05 23:32:11.097 INFO  [Test worker] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-05 23:32:11.109 INFO  [Test worker] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-05 23:32:11.109 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-09-05 23:32:11.110 INFO  [Test worker] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:poelens-test user=SA
+2026-09-05 23:32:11.110 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-09-05 23:32:11.110 WARN  [Test worker] org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-05 23:32:11.111 INFO  [Test worker] org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:poelens-test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: POELENS-TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-05 23:32:11.157 INFO  [Test worker] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-05 23:32:11.166 INFO  [Test worker] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:32:11.235 WARN  [Test worker] org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-05 23:32:11.292 INFO  [Test worker] org.springframework.boot.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-09-05 23:32:11.292 INFO  [Test worker] org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2026-09-05 23:32:11.293 INFO  [Test worker] org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+2026-09-05 23:32:11.299 INFO  [scheduling-1] com.parkyc.jypword.health.scheduler.DbHealthScheduler - Scheduled Supabase health check succeeded: result=1
+2026-09-05 23:32:11.299 INFO  [Test worker] com.parkyc.poelens.BuildAnalysisControllerTest - Started BuildAnalysisControllerTest in 0.39 seconds (process running for 3.469)
+2026-09-05 23:32:11.361 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.361 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=5
+2026-09-05 23:32:11.363 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.363 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=4, 처리 시간(ms)=1
+2026-09-05 23:32:11.399 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.399 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=0
+2026-09-05 23:32:11.399 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.399 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:32:11.403 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.403 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=2, 방어 사실 수=5
+2026-09-05 23:32:11.403 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.403 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=2, 방어 결과 수=3, 처리 시간(ms)=0
+2026-09-05 23:32:11.412 WARN  [Test worker] com.parkyc.poelens.config.response.PoeLensExceptionAdvice - 잘못된 빌드 분석 요청 거부: 오류 수=1
+2026-09-05 23:32:11.417 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.418 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=0, 방어 사실 수=0
+2026-09-05 23:32:11.418 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.418 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=0, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:32:11.452 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.453 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=0, 방어 사실 수=0
+2026-09-05 23:32:11.453 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.453 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=0, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:32:11.457 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.457 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=0, 방어 사실 수=0
+2026-09-05 23:32:11.457 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.457 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=0, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:32:11.460 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.460 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=0
+2026-09-05 23:32:11.460 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.460 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:32:11.465 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.465 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=2, 방어 사실 수=6
+2026-09-05 23:32:11.465 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.465 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=2, 방어 결과 수=4, 처리 시간(ms)=0
+2026-09-05 23:32:11.468 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.468 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=0
+2026-09-05 23:32:11.469 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.469 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:32:11.471 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.471 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=0
+2026-09-05 23:32:11.471 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.471 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=0, 처리 시간(ms)=0
+2026-09-05 23:32:11.473 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:32:11.474 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=5
+2026-09-05 23:32:11.474 INFO  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 기재 보정 건너뜀: 사용 설정=false, API 키 설정=false
+2026-09-05 23:32:11.474 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=3, 처리 시간(ms)=0
+2026-09-05 23:32:11.477 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.PoeLensApplicationTests]: PoeLensApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:32:11.478 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.PoeLensApplicationTests
+2026-09-05 23:32:11.478 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.PoeLensApplicationTests]: PoeLensApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:32:11.478 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.PoeLensApplicationTests
+2026-09-05 23:32:11.537 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:32:11.540 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-09-05 23:32:11.541 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-09-05 23:32:11.542 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:32:11.543 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-09-05 23:32:11.543 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-09-05 23:53:10.557 INFO  [Test worker] com.parkyc.jypword.JypWordApplicationTests - Starting JypWordApplicationTests using Java 21.0.12.1 with PID 20042 (started by parkyc in /Users/parkyc/Desktop/Code/cicd-lab/apps/api)
+2026-09-05 23:53:10.561 INFO  [Test worker] com.parkyc.jypword.JypWordApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-09-05 23:53:10.608 INFO  [background-preinit] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 9.1.0.Final
+2026-09-05 23:53:10.829 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-05 23:53:10.859 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 3 JPA repository interfaces.
+2026-09-05 23:53:11.003 INFO  [Test worker] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-05 23:53:11.033 INFO  [Test worker] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-05 23:53:11.190 INFO  [Test worker] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-05 23:53:11.205 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-09-05 23:53:11.270 INFO  [Test worker] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:poelens-test user=SA
+2026-09-05 23:53:11.271 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-09-05 23:53:11.281 WARN  [Test worker] org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-05 23:53:11.288 INFO  [Test worker] org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:poelens-test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: POELENS-TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-05 23:53:11.739 INFO  [Test worker] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-05 23:53:11.764 INFO  [Test worker] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:53:11.814 INFO  [Test worker] org.springframework.data.jpa.repository.query.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-05 23:53:12.291 WARN  [Test worker] org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-05 23:53:12.443 INFO  [Test worker] com.parkyc.jypword.JypWordApplicationTests - Started JypWordApplicationTests in 2.025 seconds (process running for 2.596)
+2026-09-05 23:53:12.448 INFO  [scheduling-1] com.parkyc.jypword.health.scheduler.DbHealthScheduler - Scheduled Supabase health check succeeded: result=1
+2026-09-05 23:53:12.892 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.BuildAnalysisControllerTest]: BuildAnalysisControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:53:12.910 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.BuildAnalysisControllerTest
+2026-09-05 23:53:12.912 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.BuildAnalysisControllerTest]: BuildAnalysisControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:53:12.913 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.BuildAnalysisControllerTest
+2026-09-05 23:53:12.950 INFO  [Test worker] com.parkyc.poelens.BuildAnalysisControllerTest - Starting BuildAnalysisControllerTest using Java 21.0.12.1 with PID 20042 (started by parkyc in /Users/parkyc/Desktop/Code/cicd-lab/apps/api)
+2026-09-05 23:53:12.951 INFO  [Test worker] com.parkyc.poelens.BuildAnalysisControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-09-05 23:53:13.046 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-05 23:53:13.056 INFO  [Test worker] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 3 JPA repository interfaces.
+2026-09-05 23:53:13.123 INFO  [Test worker] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-05 23:53:13.135 INFO  [Test worker] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-05 23:53:13.135 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-09-05 23:53:13.136 INFO  [Test worker] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:poelens-test user=SA
+2026-09-05 23:53:13.136 INFO  [Test worker] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-09-05 23:53:13.136 WARN  [Test worker] org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-05 23:53:13.136 INFO  [Test worker] org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:poelens-test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: POELENS-TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-05 23:53:13.194 INFO  [Test worker] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-05 23:53:13.204 INFO  [Test worker] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:53:13.260 WARN  [Test worker] org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-05 23:53:13.327 INFO  [Test worker] org.springframework.boot.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-09-05 23:53:13.327 INFO  [Test worker] org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2026-09-05 23:53:13.328 INFO  [Test worker] org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+2026-09-05 23:53:13.335 INFO  [scheduling-1] com.parkyc.jypword.health.scheduler.DbHealthScheduler - Scheduled Supabase health check succeeded: result=1
+2026-09-05 23:53:13.336 INFO  [Test worker] com.parkyc.poelens.BuildAnalysisControllerTest - Started BuildAnalysisControllerTest in 0.418 seconds (process running for 3.488)
+2026-09-05 23:53:13.402 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:53:13.402 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=0, 방어 사실 수=0
+2026-09-05 23:53:13.403 WARN  [Test worker] com.parkyc.poelens.config.response.PoeLensExceptionAdvice - PoeLens 예외 처리: 코드=AI_DAILY_LIMIT_REACHED
+2026-09-05 23:53:13.469 INFO  [Test worker] com.parkyc.poelens.build.controller.BuildAnalysisController - 빌드 분석 요청 수신: 게임 버전=3.29, 빌드 사실 포함=true
+2026-09-05 23:53:13.469 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 시작: 게임 버전=3.29, 공격 사실 수=1, 방어 사실 수=1
+2026-09-05 23:53:13.470 INFO  [Test worker] com.parkyc.poelens.build.service.BuildAnalysisServiceImpl - 빌드 분석 완료: 게임 버전=3.29, 공격 결과 수=1, 방어 결과 수=1, 처리 시간(ms)=0
+2026-09-05 23:53:13.482 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.PoeLensApplicationTests]: PoeLensApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:53:13.483 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.PoeLensApplicationTests
+2026-09-05 23:53:13.484 INFO  [Test worker] org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.parkyc.poelens.PoeLensApplicationTests]: PoeLensApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-09-05 23:53:13.484 INFO  [Test worker] org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.parkyc.UnifiedApplication for test class com.parkyc.poelens.PoeLensApplicationTests
+2026-09-05 23:53:13.629 WARN  [Test worker] com.parkyc.poelens.ai.service.OpenAiNarrativeRefiner - OpenAI 일일 호출 한도에 도달했습니다
+2026-09-05 23:53:13.653 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:53:13.655 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-09-05 23:53:13.656 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-09-05 23:53:13.657 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05 23:53:13.658 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-09-05 23:53:13.658 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.

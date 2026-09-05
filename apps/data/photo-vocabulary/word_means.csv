@@ -1,0 +1,151 @@
+source_key,display_order,mean_type,meaning
+photo-001,1,adjective,제한된; 한정된
+photo-002,1,noun,할당량
+photo-003,1,verb,회수하다; 리콜하다
+photo-003,2,noun,기억; 회상
+photo-004,1,noun,우선권; 우선사항
+photo-005,1,adjective,친숙한; 익숙한
+photo-006,1,noun,개인
+photo-006,2,adjective,개별의
+photo-007,1,noun,좌석; 좌석 배치
+photo-008,1,noun,지원; 후원
+photo-008,2,verb,지원하다; 후원하다
+photo-009,1,adjective,전체의; 총
+photo-009,2,noun,합계; 총액
+photo-010,1,adjective,감사하는
+photo-011,1,adjective,압도적인; 매우 강력한
+photo-012,1,adjective,행정의; 관리의
+photo-013,1,verb,계속하다; 지속하다
+photo-014,1,verb,일어나다; 개최되다
+photo-015,1,adverb,곧; 잠시 후에
+photo-016,1,noun,숫자; 인물
+photo-016,2,verb,생각하다; 계산하다
+photo-017,1,verb,쓰다; 소비하다
+photo-018,1,noun,소지품
+photo-019,1,noun,연구
+photo-019,2,verb,연구하다
+photo-020,1,verb,탐구하다; 탐험하다
+photo-021,1,noun,선로; 흔적
+photo-021,2,verb,추적하다
+photo-022,1,noun,기쁨; 즐거움
+photo-023,1,verb,구별하다; 식별하다
+photo-024,1,noun,합병
+photo-025,1,verb,번창하다; 잘 자라다
+photo-026,1,noun,경쟁; 대회
+photo-027,1,adjective,믿기 어려운; 놀라운
+photo-028,1,noun,지역; 구역
+photo-029,1,adjective,부정적인
+photo-030,1,verb,개선하다; 업그레이드하다
+photo-031,1,noun,대리점; 기관
+photo-032,1,noun,표본; 견본
+photo-033,1,verb,대접하다; 치료하다
+photo-034,1,noun,수리; 개조
+photo-035,1,adjective,역사적인
+photo-036,1,noun,창고
+photo-037,1,noun,거주자
+photo-038,1,adjective,성공적인
+photo-039,1,adjective,온전한; 손상되지 않은
+photo-040,1,adjective,비범한; 특별한
+photo-041,1,adjective,관대한
+photo-042,1,noun,청중; 관객
+photo-043,1,noun,서류 업무
+photo-044,1,adverb,그렇게; 그런 식으로
+photo-045,1,noun,증거; 입증
+photo-046,1,adjective,다양한
+photo-047,1,adjective,신속한; 즉각적인
+photo-047,2,verb,촉구하다; 재촉하다
+photo-048,1,verb,명심하다
+photo-049,1,adjective,유익한; 정보를 주는
+photo-050,1,adjective,기존의; 존재하는
+photo-051,1,adjective,일시적인; 임시의
+photo-052,1,adjective,수정된; 개정된
+photo-053,1,adjective,할 수 있는; 유능한
+photo-054,1,adjective,상세한; 세부적인
+photo-055,1,adjective,피할 수 없는
+photo-056,1,adjective,부적절한
+photo-057,1,noun,대량; 큰 부피
+photo-058,1,adjective,가치 있는
+photo-059,1,adjective,독립적인
+photo-060,1,adjective,관련된
+photo-061,1,adjective,바람직한; 권할 만한
+photo-062,1,adjective,성취한; 숙련된
+photo-063,1,adjective,숙련된; 능숙한
+photo-064,1,adjective,반응이 빠른; 민감한
+photo-065,1,adjective,중요한; 상당한
+photo-066,1,adjective,고급의; 진보된
+photo-067,1,adjective,좁은
+photo-068,1,adjective,신중한; 조심스러운
+photo-069,1,adjective,토착의; 원산의
+photo-070,1,adjective,경제의; 경제적인
+photo-071,1,adjective,기억할 만한
+photo-072,1,adjective,더 선호되는
+photo-073,1,adjective,확립된; 설립된
+photo-074,1,adjective,흔들리지 않는; 확고한
+photo-075,1,adjective,조건부의; 우발적인
+photo-076,1,adjective,정교한; 매우 아름다운
+photo-077,1,adjective,흠잡을 데 없는
+photo-078,1,adjective,비례하는
+photo-079,1,adjective,그 다음의; 이후의
+photo-080,1,adjective,그림 같은
+photo-081,1,adjective,엄격한; 엄한
+photo-082,1,adjective,모범적인
+photo-083,1,adjective,익명의
+photo-084,1,adjective,논란의 여지가 있는
+photo-085,1,adjective,실현 가능한
+photo-086,1,adjective,지배적인; 주된
+photo-087,1,adjective,현재의
+photo-088,1,adjective,내구성 있는
+photo-089,1,adjective,교육의
+photo-090,1,adjective,만족한
+photo-091,1,verb,만료되다; 유효 기간이 끝나다
+photo-092,1,verb,출발하다; 떠나다
+photo-093,1,verb,임명하다
+photo-094,1,noun,결과
+photo-095,1,verb,장비를 갖추다
+photo-096,1,verb,제거하다; 없애다
+photo-097,1,noun,목표; 표적
+photo-098,1,verb,호소하다; 매력적으로 다가가다
+photo-099,1,verb,구독하다
+photo-100,1,verb,고수하다; 따르다
+photo-101,1,verb,보존하다; 절약하다
+photo-102,1,verb,제거하다; 없애다
+photo-103,1,verb,협력하다
+photo-104,1,verb,맞닥뜨리다; 우연히 만나다
+photo-105,1,verb,제공하다
+photo-106,1,verb,기여하다
+photo-107,1,verb,해결하다
+photo-108,1,verb,활용하다; 이용하다
+photo-109,1,verb,연장하다
+photo-110,1,verb,예상하다; 기대하다
+photo-111,1,verb,결합시키다
+photo-112,1,verb,해결하다; 정착하다
+photo-113,1,verb,~의 탓으로 돌리다; 원인으로 여기다
+photo-114,1,verb,강조하다
+photo-115,1,verb,애용하다; 후원하다
+photo-116,1,verb,상환하다; 교환하다
+photo-117,1,verb,폐지하다
+photo-118,1,verb,처리하다; 버리다
+photo-119,1,verb,일정을 다시 잡다
+photo-120,1,verb,분리하다
+photo-121,1,verb,전시하다
+photo-122,1,verb,비교하다
+photo-123,1,verb,남아 있다
+photo-124,1,verb,허락하다
+photo-125,1,verb,발표하다; 알리다
+photo-126,1,verb,감독하다; 관리하다
+photo-127,1,verb,충족시키다; 만나다
+photo-128,1,verb,지시하다
+photo-129,1,verb,넓히다; 확대하다
+photo-130,1,verb,예약하다
+photo-131,1,verb,알리다; 통지하다
+photo-132,1,verb,대표하다; 나타내다
+photo-133,1,verb,조언하다
+photo-134,1,verb,수정하다; 개정하다
+photo-135,1,verb,시작하다
+photo-136,1,verb,생각해 내다; 상상하다
+photo-137,1,verb,활성화하다
+photo-138,1,verb,번영하다; 잘 자라다
+photo-139,1,verb,평가하다
+photo-140,1,verb,보완하다
+photo-141,1,verb,반영하다
+photo-142,1,verb,상쇄하다

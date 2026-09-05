@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: cicd-lab
-  profiles:
-    default: prod
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: update

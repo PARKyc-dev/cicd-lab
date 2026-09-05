@@ -1,6 +1,11 @@
 HELP.md
 .gradle
 build/
+**/.gradle/
+**/build/
+**/node_modules/
+**/dist/
+**/.react-router/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
@@ -39,4 +44,8 @@ out/
 ### Local secrets ###
 /docs
 .env
+**/.env
 src/main/resources/application-local.yaml
+
+### Macbook File Info
+.DS_Store
