@@ -15,6 +15,7 @@ app.use(
   createProxyMiddleware({
     target: process.env.API_ORIGIN || "http://api:8080",
     changeOrigin: false,
+    pathRewrite: (path) => `/api${path}`,
   }),
 );
 app.use("/assets", express.static("build/client/assets", { immutable: true, maxAge: "1y" }));
