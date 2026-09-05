@@ -1,6 +1,6 @@
 # CI/CD Lab
 
-PoE Lens, JYP Word, Todo를 하나의 React 프론트엔드와 하나의 Spring Boot 백엔드로 통합한 프로젝트입니다.
+[PoE Lens](https://github.com/PARKyc-dev/poe-build-lens)와 [JYP Word](https://github.com/PARKyc-dev/jyp-word)를 하나의 이미지로 빌드하고 배포하기 위해 병합한 프로젝트입니다. 두 프로젝트의 React 프론트엔드와 Spring Boot 백엔드를 각각 하나로 통합했으며, Todo 기능도 함께 제공합니다.
 
 ## 구조
 

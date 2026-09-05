@@ -6,6 +6,8 @@ build/
 **/node_modules/
 **/dist/
 **/.react-router/
+!apps/web/app/poe/build/
+!apps/web/app/poe/build/**
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
