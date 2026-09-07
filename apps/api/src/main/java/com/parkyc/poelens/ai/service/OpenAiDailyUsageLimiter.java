@@ -1,5 +1,6 @@
 package com.parkyc.poelens.ai.service;
 
+import com.parkyc.poelens.ai.domain.dto.OpenAiUsage;
 import com.parkyc.poelens.ai.repository.OpenAiDailyUsageRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,9 @@ public class OpenAiDailyUsageLimiter {
 
     public boolean tryConsume() {
         return repository.tryIncrement(LocalDate.now(zoneId), dailyLimit);
+    }
+
+    public OpenAiUsage currentUsage() {
+        return new OpenAiUsage(repository.currentCount(LocalDate.now(zoneId)), dailyLimit);
     }
 }

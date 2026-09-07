@@ -26,4 +26,14 @@ public class JdbcOpenAiDailyUsageRepository implements OpenAiDailyUsageRepositor
     public boolean tryIncrement(LocalDate date, int limit) {
         return !jdbcTemplate.query(INCREMENT_USAGE, (resultSet, rowNumber) -> resultSet.getInt(1), date, limit).isEmpty();
     }
+
+    @Override
+    public int currentCount(LocalDate date) {
+        Integer count = jdbcTemplate.queryForObject("""
+                SELECT COALESCE((
+                    SELECT request_count FROM openai_daily_usage WHERE usage_date = ?
+                ), 0)
+                """, Integer.class, date);
+        return count == null ? 0 : count;
+    }
 }

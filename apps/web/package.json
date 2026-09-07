@@ -6,12 +6,13 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "node server.mjs",
+    "test": "vitest",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@react-router/express": "^8",
     "@react-router/node": "^8",
     "@react-router/serve": "^8",
-    "@react-router/express": "^8",
     "compression": "^1.8.1",
     "express": "^5.2.1",
     "fflate": "^0.8.2",
@@ -25,11 +26,16 @@
   "devDependencies": {
     "@react-router/dev": "^8",
     "@tailwindcss/vite": "^4.2.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.4",
     "@types/node": "^22",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "jsdom": "^29.1.1",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
-    "vite": "^8.0.3"
+    "vite": "^8.0.3",
+    "vitest": "^4.1.10"
   }
 }

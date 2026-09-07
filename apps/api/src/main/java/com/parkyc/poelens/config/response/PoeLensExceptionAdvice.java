@@ -10,7 +10,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice(basePackages = "com.parkyc.poelens")
+@RestControllerAdvice
 public class PoeLensExceptionAdvice {
     private static final Logger log = LogManager.getLogger(PoeLensExceptionAdvice.class);
 

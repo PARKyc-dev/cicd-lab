@@ -2,6 +2,7 @@ package com.parkyc.poelens.ai.service;
 
 import com.parkyc.poelens.build.domain.dto.BuildFacts;
 import com.parkyc.poelens.build.domain.dto.Mechanic;
+import com.parkyc.poelens.build.domain.dto.MechanicDetail;
 import com.parkyc.poelens.build.domain.dto.NarrativeResult;
 import com.parkyc.poelens.build.domain.dto.OffenceFact;
 import com.parkyc.poelens.build.domain.dto.OperationFlow;
@@ -17,6 +18,9 @@ import java.util.function.BiFunction;
 
 @Component
 public class NarrativeSectionValidator {
+    private static final Set<String> RESISTANCE_KINDS = Set.of(
+            "fire-resistance", "cold-resistance", "lightning-resistance", "chaos-resistance");
+    private static final Set<String> DEFENCE_SECTION_KINDS = Set.of("resource", "mitigation", "avoidance", "recovery");
     public NarrativeResult validate(Map<String, Object> narrative, BuildFacts facts) {
         return validate(narrative, facts, List.of());
     }
@@ -40,16 +44,15 @@ public class NarrativeSectionValidator {
         List<?> sections = requiredSections(value, evidence.isEmpty());
 
         List<Mechanic> result = new ArrayList<>();
-        Set<String> coveredAttacks = new HashSet<>();
         for (Object sectionValue : sections) {
             if (!(sectionValue instanceof Map<?, ?> section)) throw invalidResponse();
             String attackName = string(section.get("attackName"));
             String kind = string(section.get("section"));
             String explanation = string(section.get("explanation"));
+            List<MechanicDetail> details = offenceDetails(section.get("details"), kind);
             if (attackName == null || kind == null || !Set.of("core", "supports", "modifiers", "operation").contains(kind)
-                    || explanation == null || !(section.get("evidence") instanceof List<?> references) || references.isEmpty()
+                    || explanation == null || details.isEmpty() || !(section.get("evidence") instanceof List<?> references) || references.isEmpty()
                     || !(section.get("flowSubjects") instanceof List<?> flowSubjects) || !evidence.containsKey(attackName)) throw invalidResponse();
-            if (!references.contains(attackName)) throw invalidResponse();
             if ("operation".equals(kind) && flowSubjects.isEmpty() && !hasSkillEffects(attackName, facts)) throw invalidResponse();
             for (Object reference : references) {
                 if (!(reference instanceof String name) || !evidence.get(attackName).contains(name)) throw invalidResponse();
@@ -58,11 +61,27 @@ public class NarrativeSectionValidator {
             for (Object flowSubject : flowSubjects) {
                 if (!(flowSubject instanceof String subject) || !groundedFlowSubjects.contains(subject)) throw invalidResponse();
             }
-            result.add(new Mechanic(offenceSectionTitle(kind, attackName), explanation));
-            coveredAttacks.add(attackName);
+            result.add(new Mechanic(offenceSectionTitle(kind, attackName), explanation, details));
         }
-        if (!coveredAttacks.containsAll(evidence.keySet())) throw invalidResponse();
         return result;
+    }
+
+    private List<MechanicDetail> offenceDetails(Object value, String sectionKind) {
+        if (!(value instanceof List<?> values) || values.isEmpty()) throw invalidResponse();
+        List<MechanicDetail> details = new ArrayList<>();
+        for (Object detailValue : values) {
+            if (!(detailValue instanceof Map<?, ?> detail)) throw invalidResponse();
+            String label = string(detail.get("label"));
+            String explanation = string(detail.get("explanation"));
+            String type = string(detail.get("type"));
+            if (label == null || explanation == null || !Set.of("step", "interaction", "condition").contains(type)) throw invalidResponse();
+            if ("core".equals(sectionKind) && !"step".equals(type)) throw invalidResponse();
+            if ("modifiers".equals(sectionKind) && !"interaction".equals(type)) throw invalidResponse();
+            if ("supports".equals(sectionKind) && !"step".equals(type)) throw invalidResponse();
+            if ("operation".equals(sectionKind) && !Set.of("step", "condition").contains(type)) throw invalidResponse();
+            details.add(new MechanicDetail(label, explanation, type));
+        }
+        return details;
     }
 
     static Set<String> sourceNames(BuildFacts facts) {
@@ -102,32 +121,111 @@ public class NarrativeSectionValidator {
     }
 
     private List<Mechanic> defenceSections(Object value, BuildFacts facts) {
-        Set<String> evidence = new HashSet<>();
-        if (facts.defence() != null) facts.defence().forEach(fact -> evidence.add(fact.kind()));
-        return structuredSections(value, "defenceKind", Set.of("resource", "mitigation", "avoidance", "recovery"), evidence,
-                this::defenceSectionTitle);
+        Map<String, Set<String>> evidence = new HashMap<>();
+        Set<String> sharedEvidence = defenceEvidenceNames(facts);
+        if (facts.defence() != null) facts.defence().forEach(fact -> {
+            if (RESISTANCE_KINDS.contains(fact.kind())) return;
+            Set<String> values = new HashSet<>(sharedEvidence);
+            values.add(fact.kind());
+            evidence.put(fact.kind(), values);
+        });
+        Set<String> resistanceEvidence = resistanceEvidence(facts, sharedEvidence);
+        if (!resistanceEvidence.isEmpty()) {
+            Set<String> generalResistanceEvidence = new HashSet<>(resistanceEvidence);
+            generalResistanceEvidence.add("resistances");
+            evidence.put("resistances", generalResistanceEvidence);
+            Set<String> resistanceInteractionEvidence = new HashSet<>(resistanceEvidence);
+            resistanceInteractionEvidence.add("resistance-interaction");
+            evidence.put("resistance-interaction", resistanceInteractionEvidence);
+        }
+        return mergeResistanceSections(structuredSections(value, "defenceKind", DEFENCE_SECTION_KINDS, evidence,
+                false, false, true, this::defenceSectionTitle));
+    }
+
+    static List<String> defenceSectionSubjects(BuildFacts facts) {
+        Set<String> subjects = new HashSet<>();
+        if (facts != null && facts.defence() != null) facts.defence().forEach(fact -> {
+            if (!RESISTANCE_KINDS.contains(fact.kind())) subjects.add(fact.kind());
+        });
+        if (facts != null && facts.defence() != null && facts.defence().stream().anyMatch(fact -> RESISTANCE_KINDS.contains(fact.kind()))) {
+            subjects.add("resistances");
+            subjects.add("resistance-interaction");
+        }
+        return subjects.stream().sorted().toList();
+    }
+
+    private Set<String> resistanceEvidence(BuildFacts facts, Set<String> sharedEvidence) {
+        Set<String> values = new HashSet<>();
+        if (facts.defence() != null) facts.defence().stream().map(fact -> fact.kind())
+                .filter(RESISTANCE_KINDS::contains).forEach(values::add);
+        if (!values.isEmpty()) values.addAll(sharedEvidence);
+        return values;
+    }
+
+    static Set<String> defenceEvidenceNames(BuildFacts facts) {
+        Set<String> names = sourceNames(facts);
+        if (facts != null && facts.defence() != null) facts.defence().forEach(fact -> names.add(fact.kind()));
+        if (facts != null && facts.buffs() != null) facts.buffs().forEach(buff -> {
+            if (buff.tags() != null) names.addAll(buff.tags());
+        });
+        if (facts != null && facts.defence() != null
+                && facts.defence().stream().anyMatch(fact -> RESISTANCE_KINDS.contains(fact.kind()))) {
+            names.add("resistances");
+            names.add("resistance-interaction");
+        }
+        names.addAll(DEFENCE_SECTION_KINDS);
+        names.remove(null);
+        names.remove("");
+        return names;
+    }
+
+    private List<Mechanic> mergeResistanceSections(List<Mechanic> sections) {
+        List<Mechanic> result = new ArrayList<>();
+        Map<String, Integer> resistanceIndexes = new HashMap<>();
+        for (Mechanic section : sections) {
+            if (!Set.of("저항 체계", "저항 핵심 상호작용").contains(section.title())) {
+                result.add(section);
+                continue;
+            }
+            Integer index = resistanceIndexes.get(section.title());
+            if (index == null) {
+                resistanceIndexes.put(section.title(), result.size());
+                result.add(section);
+            } else {
+                Mechanic previous = result.get(index);
+                List<MechanicDetail> details = new ArrayList<>(previous.details());
+                details.addAll(section.details());
+                result.set(index, new Mechanic(previous.title(), previous.explanation() + "\n\n" + section.explanation(), details));
+            }
+        }
+        return result;
     }
 
     private List<Mechanic> buffSections(Object value, BuildFacts facts) {
         Map<String, Set<String>> evidence = new HashMap<>();
+        Set<String> sharedEvidence = buffEvidenceNames(facts);
         if (facts.buffs() != null) facts.buffs().forEach(buff -> {
             if (buff.tags() == null || buff.tags().isEmpty()) return;
-            Set<String> values = new HashSet<>();
+            Set<String> values = new HashSet<>(sharedEvidence);
             values.add(buff.name());
-            values.addAll(buff.tags());
             evidence.put(buff.name(), values);
         });
-        return structuredSections(value, "buffName", Set.of("offence", "defence", "utility"), evidence, this::buffSectionTitle);
+        return structuredSections(value, "buffName", Set.of("offence", "defence", "utility"), evidence,
+                false, false, false, this::buffSectionTitle);
     }
 
-    private List<Mechanic> structuredSections(Object value, String subjectKey, Set<String> kinds, Set<String> evidence,
-                                               BiFunction<String, String, String> title) {
-        Map<String, Set<String>> subjects = new HashMap<>();
-        evidence.forEach(subject -> subjects.put(subject, Set.of(subject)));
-        return structuredSections(value, subjectKey, kinds, subjects, title);
+    static Set<String> buffEvidenceNames(BuildFacts facts) {
+        Set<String> names = sourceNames(facts);
+        if (facts != null && facts.buffs() != null) facts.buffs().forEach(buff -> {
+            if (buff.tags() != null) names.addAll(buff.tags());
+        });
+        names.remove(null);
+        names.remove("");
+        return names;
     }
 
     private List<Mechanic> structuredSections(Object value, String subjectKey, Set<String> kinds, Map<String, Set<String>> evidence,
+                                               boolean requireAllSubjects, boolean requireSubjectEvidence, boolean requireDetails,
                                                BiFunction<String, String, String> title) {
         List<?> sections = requiredSections(value, evidence.isEmpty());
         List<Mechanic> result = new ArrayList<>();
@@ -137,19 +235,34 @@ public class NarrativeSectionValidator {
             String subject = string(section.get(subjectKey));
             String kind = string(section.get("section"));
             String explanation = string(section.get("explanation"));
+            List<MechanicDetail> details = requireDetails ? structuredDetails(section.get("details")) : List.of();
             if (subject == null || kind == null || !kinds.contains(kind) || explanation == null
                     || !(section.get("evidence") instanceof List<?> references) || references.isEmpty() || !evidence.containsKey(subject)) throw invalidResponse();
             boolean containsSubject = false;
             for (Object reference : references) {
                 if (!(reference instanceof String name) || !evidence.get(subject).contains(name)) throw invalidResponse();
-                containsSubject |= subject.equals(name);
+                containsSubject |= subject.equals(name) || (subject.startsWith("resistance") && RESISTANCE_KINDS.contains(name));
             }
-            if (!containsSubject) throw invalidResponse();
-            result.add(new Mechanic(title.apply(kind, subject), explanation));
+            if (requireSubjectEvidence && !containsSubject) throw invalidResponse();
+            result.add(new Mechanic(title.apply(kind, subject), explanation, details));
             coveredSubjects.add(subject);
         }
-        if (!coveredSubjects.containsAll(evidence.keySet())) throw invalidResponse();
+        if (requireAllSubjects && !coveredSubjects.containsAll(evidence.keySet())) throw invalidResponse();
         return result;
+    }
+
+    private List<MechanicDetail> structuredDetails(Object value) {
+        if (!(value instanceof List<?> values) || values.isEmpty()) throw invalidResponse();
+        List<MechanicDetail> details = new ArrayList<>();
+        for (Object detailValue : values) {
+            if (!(detailValue instanceof Map<?, ?> detail)) throw invalidResponse();
+            String label = string(detail.get("label"));
+            String explanation = string(detail.get("explanation"));
+            String type = string(detail.get("type"));
+            if (label == null || explanation == null || !Set.of("step", "interaction", "condition").contains(type)) throw invalidResponse();
+            details.add(new MechanicDetail(label, explanation, type));
+        }
+        return details;
     }
 
     private String offenceSectionTitle(String kind, String attackName) {
@@ -163,6 +276,8 @@ public class NarrativeSectionValidator {
     }
 
     private String defenceSectionTitle(String kind, String defenceKind) {
+        if ("resistances".equals(defenceKind)) return "저항 체계";
+        if ("resistance-interaction".equals(defenceKind)) return "저항 핵심 상호작용";
         return switch (kind) {
             case "resource" -> "방어 자원: " + defenceKind;
             case "mitigation" -> "피해 경감: " + defenceKind;

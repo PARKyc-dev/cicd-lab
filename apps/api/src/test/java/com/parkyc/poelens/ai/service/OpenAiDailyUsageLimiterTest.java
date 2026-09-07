@@ -33,6 +33,16 @@ class OpenAiDailyUsageLimiterTest {
         assertThat(limiter.tryConsume()).isFalse();
     }
 
+    @Test
+    void returnsTheStoredUsageAndConfiguredLimit() {
+        InMemoryUsageRepository repository = new InMemoryUsageRepository();
+        OpenAiDailyUsageLimiter limiter = new OpenAiDailyUsageLimiter(repository, 37, "Asia/Seoul");
+        limiter.tryConsume();
+
+        assertThat(limiter.currentUsage().used()).isEqualTo(1);
+        assertThat(limiter.currentUsage().limit()).isEqualTo(37);
+    }
+
     private static class InMemoryUsageRepository implements OpenAiDailyUsageRepository {
         private final Map<LocalDate, Integer> usage = new HashMap<>();
 
@@ -42,6 +52,11 @@ class OpenAiDailyUsageLimiterTest {
             if (current >= limit) return false;
             usage.put(date, current + 1);
             return true;
+        }
+
+        @Override
+        public int currentCount(LocalDate date) {
+            return usage.getOrDefault(date, 0);
         }
     }
 }

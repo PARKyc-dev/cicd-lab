@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { analyzeBuild } from './analysis'
+import { analyzeBuild, getAiUsage } from './analysis'
 import type { BrowserInspectResult } from '../pob/browserPob'
 
 const inspectedFireball: BrowserInspectResult = {
@@ -78,6 +78,16 @@ describe('analyzeBuild', () => {
     }), { status: 429 })))
 
     await expect(analyzeBuild(inspectedFireball)).rejects.toThrow('금일 AI 분석 리미트에 도달했습니다.')
+  })
+
+  it('gets the actual AI usage and configured limit', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({
+      code: 'OK', message: 'SUCCESS', returnObject: { used: 1, limit: 37 },
+    }), { status: 200 }))
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(getAiUsage()).resolves.toEqual({ used: 1, limit: 37 })
+    expect(fetchMock).toHaveBeenCalledWith('/api/poe/ai-usage')
   })
 
 })

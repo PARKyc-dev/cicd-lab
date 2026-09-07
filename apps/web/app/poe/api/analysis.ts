@@ -3,6 +3,13 @@ import type { BrowserInspectResult } from '../pob/browserPob'
 export type Mechanic = {
   title: string
   explanation: string
+  details?: MechanicDetail[]
+}
+
+export type MechanicDetail = {
+  label: string
+  explanation: string
+  type: 'step' | 'interaction' | 'condition'
 }
 
 export type Evidence = {
@@ -33,6 +40,11 @@ export type BuildAnalysisRequest = {
   buildFacts: BrowserInspectResult['buildFacts']
 }
 
+export type AiUsage = {
+  used: number
+  limit: number
+}
+
 type ApiResponse<T> = {
   code: string
   message: string
@@ -53,6 +65,15 @@ export async function analyzeBuild(result: BrowserInspectResult): Promise<BuildA
     } satisfies BuildAnalysisRequest),
   })
   const payload = await response.json() as ApiResponse<BuildAnalysisResult>
+
+  if (!response.ok) throw new Error(payload.message)
+
+  return payload.returnObject
+}
+
+export async function getAiUsage(): Promise<AiUsage> {
+  const response = await fetch('/api/poe/ai-usage')
+  const payload = await response.json() as ApiResponse<AiUsage>
 
   if (!response.ok) throw new Error(payload.message)
 
