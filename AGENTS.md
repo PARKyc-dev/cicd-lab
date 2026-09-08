@@ -16,6 +16,7 @@
 - PoE Lens `api/src/test/java/com/parkyc/poelens/` → `apps/api/src/test/java/com/parkyc/poelens/`
 - PoE Lens `web/src/` → `apps/web/app/poe/`
 - PoE Lens `web/public/pob/` → `apps/web/public/pob/`
+- PoE Lens `data/generated/pob-*-assets.json` → `apps/web/data/generated/`
 - JYP Word `api/src/main/java/com/parkyc/jypword/` → `apps/api/src/main/java/com/parkyc/jypword/`
 - JYP Word `api/src/test/java/com/parkyc/jypword/` → `apps/api/src/test/java/com/parkyc/jypword/`
 - JYP Word `web/app/` → `apps/web/app/` (`apps/web/app/poe/` 제외)
@@ -27,6 +28,7 @@
 
 - Spring Boot 진입점은 `apps/api/src/main/java/com/parkyc/UnifiedApplication.java` 하나를 사용한다. 원본의 `PoeLensApplication.java`와 `JypWordApplication.java`를 복사하지 않는다.
 - PoE Lens API는 `/api/poe/**`, JYP Word API는 `/api/word/**`, Todo API는 `/api/todo/**`를 사용한다.
+- JYP Word 원본의 `jypword.health`와 `jypword.todo`는 통합본에서 각각 `com.parkyc.health`와 `com.parkyc.todo` 패키지로 이동되어 있다. JYP Word 동기화 시 원래 패키지 위치로 되돌리지 않는다.
 - 웹 라우트는 `/poe`, `/word`, `/word/study`, `/todo`를 유지한다.
 - PoE Lens 웹 API 클라이언트와 테스트의 주소도 `/api/poe/**`를 사용한다.
 - `apps/web/app/poe/pob/pob.worker.ts`의 Wasmoon 경로는 통합 폴더 깊이에 맞춰 `../../../node_modules/wasmoon/dist/glue.wasm`을 사용한다.

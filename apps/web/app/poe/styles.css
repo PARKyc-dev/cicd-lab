@@ -25,6 +25,13 @@ body::before {
   mask-image: linear-gradient(to bottom, black, transparent 78%);
 }
 
+.site-layout { display: grid; min-height: 100vh; grid-template-rows: 1fr auto; }
+.site-footer { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: 1.4rem 0 2rem; border-top: 1px solid rgb(175 194 211 / 15%); color: #8294a7; font-size: 0.68rem; line-height: 1.55; text-align: center; }
+.site-footer p { margin: 0.2rem 0; }
+.site-footer strong { color: #aab9c6; font-weight: 650; }
+.site-footer a { color: #8fcfc8; text-underline-offset: 0.18em; }
+.site-footer a:hover, .site-footer a:focus-visible { color: #b0e2dc; }
+
 .app-shell {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
@@ -417,6 +424,7 @@ em { margin-left: 0.35rem; color: #7fa9bc; font-family: Inter, ui-sans-serif, sa
 .jewel-list { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 0; padding: 0; list-style: none; }
 .jewel-list li { min-width: 6.5rem; border: 1px solid rgb(141 170 184 / 28%); background: rgb(35 52 68 / 55%); }
 .jewel-list button { display: grid; gap: 0.2rem; width: 100%; min-height: 5rem; padding: 0.6rem; border: 0; background: transparent; text-align: center; }
+.jewel-list img { width: 3.25rem; height: 3.25rem; margin: 0 auto; object-fit: contain; }
 .jewel-list button:focus-visible { outline: 2px solid #8fcfc8; outline-offset: -3px; }
 .jewel-list strong { color: #e5e4d7; font-size: 0.78rem; }
 .jewel-list span { color: #8d9eae; font-size: 0.68rem; }

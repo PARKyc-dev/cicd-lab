@@ -1,6 +1,6 @@
-package com.parkyc.jypword.todo.repository;
+package com.parkyc.todo.repository;
 
-import com.parkyc.jypword.todo.domain.entity.Todo;
+import com.parkyc.todo.domain.entity.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

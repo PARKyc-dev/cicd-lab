@@ -1,6 +1,6 @@
-package com.parkyc.jypword.health.scheduler;
+package com.parkyc.health.scheduler;
 
-import com.parkyc.jypword.health.service.DbHealthService;
+import com.parkyc.health.service.DbHealthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;

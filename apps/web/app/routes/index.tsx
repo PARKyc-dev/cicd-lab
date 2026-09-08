@@ -26,7 +26,7 @@ const services = [
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "PARKYC.COM · Project Hub" },
+    { title: "PARKYC.COM" },
     {
       name: "description",
       content: "PARKYC가 만들고 운영하는 서비스들을 한곳에서 만나보세요.",

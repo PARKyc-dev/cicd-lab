@@ -1,4 +1,4 @@
-package com.parkyc.jypword.health.service;
+package com.parkyc.health.service;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;

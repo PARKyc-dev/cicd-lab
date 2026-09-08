@@ -134,7 +134,7 @@ local function activateEquippedFlasks()
 end
 
 local function equipmentFromActiveSet()
-  local result = { }
+  local result = jsonArray()
   local itemSet = build.itemsTab.activeItemSet
   for _, slotName in ipairs(equipmentSlots) do
     local slot = itemSet[slotName]
@@ -158,9 +158,12 @@ local function equipmentFromActiveSet()
   return result
 end
 
-local function jewelsFromActiveSpec()
-  local result = { }
-  for socketId, itemId in pairs(build.spec.jewels or { }) do
+local function jewelsFromActiveSpec(xmlJewels)
+  local result = jsonArray()
+  local jewels = { }
+  for socketId, itemId in pairs(build.spec.jewels or { }) do jewels[socketId] = itemId end
+  for socketId, itemId in pairs(xmlJewels or { }) do jewels[socketId] = itemId end
+  for socketId, itemId in pairs(jewels) do
     local item = build.itemsTab.items[itemId]
     if item then
       local modifiers = { }
@@ -550,6 +553,9 @@ local function offenceFacts(env)
   for _, candidate in pairs(candidates) do
     if candidate.combinedDps > 0 or candidate.isMain then table.insert(ranked, candidate) end
   end
+  if #ranked == 0 then
+    for _, candidate in pairs(candidates) do table.insert(ranked, candidate) end
+  end
   table.sort(ranked, function(left, right)
     if left.isMain ~= right.isMain then return left.isMain end
     if left.combinedDps == right.combinedDps then return left.name < right.name end
@@ -806,9 +812,12 @@ local function itemFacts()
   return result
 end
 
-local function jewelFacts(spec)
+local function jewelFacts(spec, xmlJewels)
   local result = jsonArray()
-  for socketId, itemId in pairs(spec.jewels or { }) do
+  local jewels = { }
+  for socketId, itemId in pairs(spec.jewels or { }) do jewels[socketId] = itemId end
+  for socketId, itemId in pairs(xmlJewels or { }) do jewels[socketId] = itemId end
+  for socketId, itemId in pairs(jewels) do
     local item = build.itemsTab.items[itemId]
     if item then
       local modifiers = jsonArray()
@@ -845,7 +854,7 @@ local function performanceFact(output)
   }
 end
 
-local function buildFacts(env, output, spec)
+local function buildFacts(env, output, spec, xmlJewels)
   local conditions = { }
   for name, value in pairs(build.configTab.input or { }) do
     if name:match("^condition") or name:match("^buff") or name:match("^use.*Charges$") then
@@ -863,7 +872,7 @@ local function buildFacts(env, output, spec)
     ascendancies = ascendancyFacts(spec),
     passiveTags = allPassiveTags(spec),
     items = itemFacts(),
-    jewels = jewelFacts(spec),
+    jewels = jewelFacts(spec, xmlJewels),
     operationFacts = operationFacts(env, spec),
     performance = performanceFact(output),
   }
@@ -875,6 +884,27 @@ local function qualityTypesFromXml(xmlText)
     local gemId = attributes:match('gemId="([^"]+)"')
     local qualityId = attributes:match('qualityId="([^"]+)"')
     if gemId and qualityId then result[gemId] = qualityId end
+  end
+  return result
+end
+
+local function activeJewelsFromXml(xmlText, requestedSpecId)
+  local result = { }
+  local treeAttributes, treeBody = xmlText:match("<Tree%s+([^>]-)>(.-)</Tree>")
+  if not treeBody then return result end
+  local activeSpecId = tonumber(requestedSpecId) or tonumber(treeAttributes:match('activeSpec="(%d+)"')) or 1
+  local index = 0
+  for attributes, body in treeBody:gmatch("<Spec%s*([^>]*)>(.-)</Spec>") do
+    index = index + 1
+    local id = tonumber(attributes:match('id="(%d+)"')) or index
+    if id == activeSpecId then
+      for socketAttributes in body:gmatch("<Socket%s+([^>]-)/>") do
+        local itemId = tonumber(socketAttributes:match('itemId="(%d+)"'))
+        local nodeId = socketAttributes:match('nodeId="(%d+)"')
+        if itemId and nodeId then result[nodeId] = itemId end
+      end
+      break
+    end
   end
   return result
 end
@@ -892,8 +922,8 @@ function inspectBuild(xmlText, specId)
   end
   local spec = build.spec
   local tree = spec.tree
-  local nodes = { }
-  local links = { }
+  local nodes = jsonArray()
+  local links = jsonArray()
   for id, node in pairs(spec.allocNodes) do
     table.insert(nodes, {
       id = tostring(id),
@@ -909,18 +939,32 @@ function inspectBuild(xmlText, specId)
       end
     end
   end
-  local specs = { }
+  local specs = jsonArray()
   for id, candidate in ipairs(build.treeTab.specList) do
     table.insert(specs, { id = id, title = titleOrDefault(candidate.title) })
   end
   local function entries(ids, values)
-    local results = { }
+    local results = jsonArray()
     for _, id in ipairs(ids) do table.insert(results, { id = id, title = titleOrDefault(values[id].title) }) end
     return results
   end
   local output = build.calcsTab.mainOutput or { }
   local mainEnv = build.calcsTab.mainEnv
   local mainSkill = mainEnv and mainEnv.player and mainEnv.player.mainSkill
+  local xmlJewels = activeJewelsFromXml(xmlText, specId)
+  local facts = mainEnv and buildFacts(mainEnv, output, spec, xmlJewels) or { offence = jsonArray(), skills = jsonArray(), defence = jsonArray(), buffs = jsonArray(), mobility = jsonArray(), passives = jsonArray(), ascendancies = jsonArray(), passiveTags = jsonArray(), items = jsonArray(), jewels = jsonArray(), operationFacts = jsonArray(), performance = { } }
+  local displayedSkill = mainSkill
+  local primaryOffence = facts.offence and facts.offence[1]
+  local mainSkillName = mainSkill and mainSkill.activeEffect and mainSkill.activeEffect.grantedEffect and mainSkill.activeEffect.grantedEffect.name
+  if primaryOffence and primaryOffence.name ~= mainSkillName then
+    for _, skill in ipairs(mainEnv.player.activeSkillList or { }) do
+      local grantedEffect = skill.activeEffect and skill.activeEffect.grantedEffect
+      if grantedEffect and grantedEffect.name == primaryOffence.name then
+        displayedSkill = skill
+        break
+      end
+    end
+  end
   return jsonEncode({
     specs = specs,
     skillSets = entries(build.skillsTab.skillSetOrderList, build.skillsTab.skillSets),
@@ -928,10 +972,10 @@ function inspectBuild(xmlText, specId)
     activeSpec = build.treeTab.activeSpec,
     activeSkillSet = build.skillsTab.activeSkillSetId,
     activeItemSet = build.itemsTab.activeItemSetId,
-    activeSkillName = mainSkill and mainSkill.activeEffect and mainSkill.activeEffect.grantedEffect and mainSkill.activeEffect.grantedEffect.name or nil,
-    mainSkillFlags = flagsFromMainSkill(mainSkill),
+    activeSkillName = displayedSkill and displayedSkill.activeEffect and displayedSkill.activeEffect.grantedEffect and displayedSkill.activeEffect.grantedEffect.name or nil,
+    mainSkillFlags = flagsFromMainSkill(displayedSkill),
     skillTooltips = mainEnv and skillTooltipFacts(mainEnv) or { },
-    buildFacts = mainEnv and buildFacts(mainEnv, output, spec) or { offence = { }, skills = { }, defence = { }, buffs = { }, mobility = { }, passives = { }, ascendancies = { }, passiveTags = { }, items = { }, jewels = { }, operationFacts = jsonArray(), performance = { } },
+    buildFacts = facts,
     summary = {
       totalDps = output.TotalDPS,
       combinedDps = output.CombinedDPS,
@@ -943,7 +987,7 @@ function inspectBuild(xmlText, specId)
       totalEhp = output.TotalEHP,
     },
     equipment = equipmentFromActiveSet(),
-    jewels = jewelsFromActiveSpec(),
+    jewels = jewelsFromActiveSpec(xmlJewels),
     tree = {
       version = spec.treeVersion,
       nodes = nodes,

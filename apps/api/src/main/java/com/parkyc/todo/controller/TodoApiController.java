@@ -1,7 +1,7 @@
-package com.parkyc.jypword.todo.controller;
+package com.parkyc.todo.controller;
 
-import com.parkyc.jypword.todo.domain.entity.Todo;
-import com.parkyc.jypword.todo.repository.TodoRepository;
+import com.parkyc.todo.domain.entity.Todo;
+import com.parkyc.todo.repository.TodoRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

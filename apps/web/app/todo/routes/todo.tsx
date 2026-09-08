@@ -11,7 +11,7 @@ type Todo = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Todo List" },
+    { title: "Todo" },
     { name: "description", content: "할 일 목록" },
   ];
 }

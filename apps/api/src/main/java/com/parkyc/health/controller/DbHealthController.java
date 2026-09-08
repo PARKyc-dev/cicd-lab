@@ -1,6 +1,6 @@
-package com.parkyc.jypword.health.controller;
+package com.parkyc.health.controller;
 
-import com.parkyc.jypword.health.service.DbHealthService;
+import com.parkyc.health.service.DbHealthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

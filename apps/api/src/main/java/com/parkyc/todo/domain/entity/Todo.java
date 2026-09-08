@@ -1,4 +1,4 @@
-package com.parkyc.jypword.todo.domain.entity;
+package com.parkyc.todo.domain.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
