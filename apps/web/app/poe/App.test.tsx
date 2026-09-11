@@ -189,7 +189,7 @@ vi.mock('./api/analysis', () => ({
   })),
 }))
 
-import App from './App'
+import App, { AnalysisPreviewApp } from './App'
 import { inspectBuildInBrowser } from './pob/browserPob'
 import { analyzeBuild, getAiUsage } from './api/analysis'
 
@@ -201,11 +201,10 @@ afterEach(() => {
 
 describe('build analysis', () => {
   it('shows the stored analysis preview without running PoB or API analysis', () => {
-    window.history.replaceState({}, '', '/equipment-preview')
     vi.mocked(getAiUsage).mockClear()
     vi.mocked(inspectBuildInBrowser).mockClear()
     vi.mocked(analyzeBuild).mockClear()
-    render(<App />)
+    render(<AnalysisPreviewApp />)
 
     expect(screen.getByRole('main', { name: '빌드 상세' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Kinetic Fusillade Insight' })).toBeInTheDocument()
@@ -246,7 +245,7 @@ describe('build analysis', () => {
     expect(screen.getByText('PoB 엔진 준비 완료')).toBeInTheDocument()
     expect(screen.getByLabelText('검사할 PoB 코드, pobb.in 또는 XML')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'PoB 검사' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: '분석 미리보기' })).toHaveAttribute('href', '/equipment-preview')
+    expect(screen.getByRole('link', { name: '분석 미리보기' })).toHaveAttribute('href', '/poe/equipment-preview')
     expect(screen.queryByRole('heading', { name: 'PoB headless inspect' })).not.toBeInTheDocument()
     expect(screen.queryByRole('region', { name: 'Build analysis' })).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Analyze build' })).not.toBeInTheDocument()

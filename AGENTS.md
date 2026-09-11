@@ -28,7 +28,7 @@
 - Spring Boot 진입점은 `apps/api/src/main/java/com/parkyc/UnifiedApplication.java` 하나를 사용한다. 원본의 `PoeLensApplication.java`와 `JypWordApplication.java`를 복사하지 않는다.
 - PoE Lens API는 `/api/poe/**`, JYP Word API는 `/api/word/**`, Todo API는 `/api/todo/**`를 사용한다.
 - JYP Word 원본의 `jypword.health`와 `jypword.todo`는 통합본에서 각각 `com.parkyc.health`와 `com.parkyc.todo` 패키지로 이동되어 있다. JYP Word 동기화 시 원래 패키지 위치로 되돌리지 않는다.
-- 웹 라우트는 `/poe`, `/word`, `/word/study`, `/todo`를 유지한다.
+- 웹 라우트는 `/poe`, `/poe/equipment-preview`, `/word`, `/word/study`, `/todo`를 유지한다. PoE 원본의 `window.location` 기반 `/equipment-preview` 분기는 통합본에서 SSR 라우트로 분리한다.
 - PoE Lens 웹 API 클라이언트와 테스트의 주소도 `/api/poe/**`를 사용한다.
 - `apps/web/app/poe/pob/pob.worker.ts`의 Wasmoon 경로는 통합 폴더 깊이에 맞춰 `../../../node_modules/wasmoon/dist/glue.wasm`을 사용한다.
 - `apps/api/build.gradle`, `apps/api/src/main/resources/application.yaml`, `apps/web/package.json`, `apps/web/vite.config.ts`, `apps/web/server.mjs`는 두 프로젝트 요구사항을 합친 통합 설정이므로 한쪽 원본으로 덮어쓰지 않는다.

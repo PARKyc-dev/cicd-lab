@@ -116,7 +116,7 @@ function BuildAnalysisApp() {
           />
           <div className="inspect-actions">
             <button type="submit" disabled={isInspecting}>{isInspecting ? '검사 중…' : 'PoB 검사'}</button>
-            <a className="secondary-button" href="/equipment-preview">분석 미리보기</a>
+            <a className="secondary-button" href="/poe/equipment-preview">분석 미리보기</a>
           </div>
         </form>
         <div aria-live="polite">
@@ -128,9 +128,9 @@ function BuildAnalysisApp() {
 }
 
 export default function App() {
-  if (window.location.pathname === '/equipment-preview') {
-    return <AppLayout><AnalysisPreviewPage /></AppLayout>
-  }
-
   return <BuildAnalysisApp />
+}
+
+export function AnalysisPreviewApp() {
+  return <AppLayout><AnalysisPreviewPage /></AppLayout>
 }
