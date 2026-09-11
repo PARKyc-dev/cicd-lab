@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { BuildFactSkill, BuildFactSupportGem, BrowserInspectResult } from '../pob/browserPob'
 import './SkillGemSection.css'
 
@@ -10,13 +10,19 @@ function gemMeta(gem: Pick<BuildFactSkill | BuildFactSupportGem, 'level' | 'qual
 
 function GemImage({ gem, active = false }: { gem: Pick<BuildFactSkill | BuildFactSupportGem, 'name' | 'imageUrl'>, active?: boolean }) {
   const [isThreeFrameSprite, setIsThreeFrameSprite] = useState(false)
+  const imageRef = useRef<HTMLImageElement>(null)
   const imageUrl = gem.imageUrl
+  const detectSprite = (image: HTMLImageElement) => {
+    const { naturalWidth, naturalHeight } = image
+    setIsThreeFrameSprite(naturalHeight > 0 && naturalWidth === naturalHeight * 3)
+  }
+  useEffect(() => {
+    const image = imageRef.current
+    if (image?.complete) detectSprite(image)
+  }, [imageUrl])
   if (!imageUrl) return null
   return <span className={`gem-icon${active ? ' active-gem-icon' : ''}${isThreeFrameSprite ? ' gem-icon-sprite' : ''}`}>
-    <img className="gem-icon-layer gem-icon-frame-0" src={imageUrl} alt={gem.name} onLoad={(event) => {
-      const { naturalWidth, naturalHeight } = event.currentTarget
-      setIsThreeFrameSprite(naturalHeight > 0 && naturalWidth === naturalHeight * 3)
-    }} />
+    <img ref={imageRef} className="gem-icon-layer gem-icon-frame-0" src={imageUrl} alt={gem.name} onLoad={(event) => detectSprite(event.currentTarget)} />
     {isThreeFrameSprite && [1, 2].map((frame) => <img className={`gem-icon-layer gem-icon-frame-${frame}`} src={imageUrl} alt="" aria-hidden="true" key={frame} />)}
   </span>
 }
