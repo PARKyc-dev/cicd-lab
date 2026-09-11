@@ -191,14 +191,37 @@ vi.mock('./api/analysis', () => ({
 
 import App from './App'
 import { inspectBuildInBrowser } from './pob/browserPob'
-import { analyzeBuild } from './api/analysis'
+import { analyzeBuild, getAiUsage } from './api/analysis'
 
 afterEach(() => {
   cleanup()
+  window.history.replaceState({}, '', '/')
   vi.unstubAllGlobals()
 })
 
 describe('build analysis', () => {
+  it('shows the stored analysis preview without running PoB or API analysis', () => {
+    window.history.replaceState({}, '', '/equipment-preview')
+    vi.mocked(getAiUsage).mockClear()
+    vi.mocked(inspectBuildInBrowser).mockClear()
+    vi.mocked(analyzeBuild).mockClear()
+    render(<App />)
+
+    expect(screen.getByRole('main', { name: '빌드 상세' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Kinetic Fusillade Insight' })).toBeInTheDocument()
+    expect(screen.getByText(/Replica Alberon's Warpath 때문에/)).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Kinetic Fusillade' })).toHaveAttribute('src', expect.stringContaining('KineticFullisadeSkillGem.png'))
+    expect(screen.getByRole('button', { name: '주무기 슬롯: Woe Chant' }).querySelector('img')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '목걸이 슬롯: Agony Gorget' }).querySelector('img')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '패시브: Multishot' })).toBeInTheDocument()
+    expect(screen.getAllByRole('button', { name: '마스터리: Life Mastery' }).length).toBeGreaterThan(0)
+    expect(screen.getByRole('button', { name: '전직: The Shattered Divinity' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: '강화 우선순위' })).not.toBeInTheDocument()
+    expect(inspectBuildInBrowser).not.toHaveBeenCalled()
+    expect(analyzeBuild).not.toHaveBeenCalled()
+    expect(getAiUsage).not.toHaveBeenCalled()
+  })
+
   it('shows the unofficial non-commercial Grinding Gear Games notice', () => {
     render(<App />)
 
@@ -223,6 +246,7 @@ describe('build analysis', () => {
     expect(screen.getByText('PoB 엔진 준비 완료')).toBeInTheDocument()
     expect(screen.getByLabelText('검사할 PoB 코드, pobb.in 또는 XML')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'PoB 검사' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: '분석 미리보기' })).toHaveAttribute('href', '/equipment-preview')
     expect(screen.queryByRole('heading', { name: 'PoB headless inspect' })).not.toBeInTheDocument()
     expect(screen.queryByRole('region', { name: 'Build analysis' })).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Analyze build' })).not.toBeInTheDocument()
@@ -330,7 +354,7 @@ describe('build analysis', () => {
     expect(screen.getByRole('tooltip', { name: 'Hatred 상세 정보' })).toHaveTextContent('Hatred grants extra cold damage.')
     expect(screen.getByRole('tooltip', { name: 'Hatred 상세 정보' })).not.toHaveTextContent('활성화된 버프 효과입니다.')
     await user.unhover(within(buffs).getByRole('button', { name: '버프: Hatred' }))
-    expect(screen.getByText('생명력 기반 방어를 먼저 보강하세요')).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: '강화 우선순위' })).not.toBeInTheDocument()
     expect(screen.getByText('+90 to maximum Life')).toBeInTheDocument()
     const gems = screen.getByRole('region', { name: '스킬젬 상세' })
     expect(within(gems).getByRole('heading', { name: '스킬젬 상세' })).toBeInTheDocument()

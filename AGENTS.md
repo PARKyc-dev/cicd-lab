@@ -16,7 +16,6 @@
 - PoE Lens `api/src/test/java/com/parkyc/poelens/` → `apps/api/src/test/java/com/parkyc/poelens/`
 - PoE Lens `web/src/` → `apps/web/app/poe/`
 - PoE Lens `web/public/pob/` → `apps/web/public/pob/`
-- PoE Lens `data/generated/pob-*-assets.json` → `apps/web/data/generated/`
 - JYP Word `api/src/main/java/com/parkyc/jypword/` → `apps/api/src/main/java/com/parkyc/jypword/`
 - JYP Word `api/src/test/java/com/parkyc/jypword/` → `apps/api/src/test/java/com/parkyc/jypword/`
 - JYP Word `web/app/` → `apps/web/app/` (`apps/web/app/poe/` 제외)
